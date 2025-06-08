@@ -1,32 +1,14 @@
-# IUH - Đại học Công nghiệp Thành phố Hồ Chí Minh
+#HUST - Đại học Bách Khoa Hà Nội
 
-## Môn: Phát triển ứng dụng
-## Đề tài: **Quản lý Hiệu Thuốc tây**
+## Môn: Kỹ thuật phần mềm
+## Đề tài: **Quản lý Hiệu Thuốc**
 
->Ý tưởng thiết kế UI: [Quản lý kho điện thoại - hgbaodev](https://github.com/hgbaodev/QuanLyKhoDienThoai)
 >
 ## Technology
 - Java
 - SQL Server
-- NetBeans 19
+- NetBeans 17
 
-## Getting Started
-1. Tải source code:
-```sh
-git clone git@github.com:atuandev/quan-ly-thuoc-tay.git
-```
-2. Import file **QLThuoc.sql** trong thư mục **database** vào **SQL Server**.
->Lưu ý: Phải đăng nhập SQL Server đúng tài khoản mật khẩu
-
->username: `sa`
-
->password: `sapassword`
-
-Nếu muốn `insert Thuoc` trong file **QLThuoc.sql** -> Phải đổi đường dẫn `D/IUH/QuanLyThuocTay` thành nơi chứa project `QuanLyThuocTay` trên máy bạn
-
-3. Sử dụng **NetBeans** chọn **File -> Open Project**
-
-4. Run project ở file **Login.java**
 
 ## Giao diện 
 
