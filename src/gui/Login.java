@@ -8,7 +8,6 @@ import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import controller.TaiKhoanController;
 import entities.TaiKhoan;
 import java.awt.event.KeyEvent;
-import utils.BCrypt;
 import utils.MessageDialog;
 import utils.Validation;
 
@@ -54,27 +53,29 @@ public class Login extends javax.swing.JFrame {
         return true;
     }
 
-    private void authentication() {
-        String username = txtUsername.getText();
-        String password = txtPassword.getText();
+   private void authentication() {
+    String username = txtUsername.getText().trim();
+    String password = new String(txtPassword.getPassword()).trim();
 
-        if (isValidateFields()) {
-            TaiKhoan tk = new TaiKhoanController().selectByUsername(username);
-
-            if (tk == null) {
-                MessageDialog.error(this, "Tài khoản không tồn tại!");
-                return;
-            }
-
-            if (username.equals(tk.getUsername()) && BCrypt.compare(password, tk.getPassword())) {
-                new MainLayout(tk).setVisible(true);
-                this.dispose();
-            } else {
-                MessageDialog.error(this, "Tài khoản hoặc mật khẩu không chính xác. Vui lòng kiểm tra lại!");
-            }
-
-        }
+    if (!isValidateFields()) {
+        return;
     }
+
+    TaiKhoan tk = new TaiKhoanController().selectByUsername(username);
+
+    if (tk == null) {
+        MessageDialog.error(this, "Thông tin đăng nhập không chính xác. Vui lòng kiểm tra lại!");
+        return;
+    }
+
+    // So sánh mật khẩu 
+    if (password.equals(tk.getPassword())) {
+        new MainLayout(tk).setVisible(true);
+        this.dispose();
+    } else {
+        MessageDialog.error(this, "Thông tin đăng nhập không chính xác. Vui lòng kiểm tra lại!");
+    }
+}
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
